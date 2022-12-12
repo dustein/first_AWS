@@ -1,13 +1,15 @@
 const express = require('express');
 
 const app = express();
+app.use(express.json());
+
 
 app.get('/', (req, res) => {
-  res.send('Servidor AWS Express OnLine!')
+  res.status(200).json({status: 'Second Servidor AWS Express OnLine!'})
 })
 
 app.get('/sucesso', (req, res) => {
-  res.send('Acessando rota SUCESSO da app')
+  res.status(200).json({acesso: 'Rota funcionando com Sucesso'})
 })
 
-app.listen(3030, () => { console.log('Servidor na porta 3030')})
+app.listen(3333, () => { console.log('Servidor rodando na porta 3333')})
